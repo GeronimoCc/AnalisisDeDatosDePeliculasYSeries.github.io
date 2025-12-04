@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de la Industria Audiovisual - Presentación Final</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-film"></i>
+            <span>Análisis de Datos</span>
+        </div>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#intro">Contexto</a></li>
+                <li><a href="#metodologia">Metodología</a></li>
+                <li><a href="#h1">H1</a></li>
+                <li><a href="#h2">H2</a></li>
+                <li><a href="#h3">H3</a></li>
+                <li><a href="#h4">H4</a></li>
+                <li><a href="#conclusiones">Conclusiones</a></li>
+                <li><a href="https://colab.research.google.com/drive/18vHpizNCDFnO2-ELmjBG-4uTrg_da6WQ?usp=sharing" target="_blank" class="btn-code">Código <i class="fas fa-code"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="intro" class="hero-text">
+            <div class="content-wrapper">
+                <h1>Análisis Estratégico de la Industria Audiovisual</h1>
+                <p class="lead">Un estudio sobre 44,000 producciones para optimizar sistemas de recomendación.</p>
+                
+                <div class="text-block">
+                    <h3><i class="fas fa-globe"></i> Contexto de la Industria</h3>
+                    <p>En la actualidad, la globalización y transformación digital han reestructurado la estructura del entretenimiento mundial. La industria es dominada por grandes productoras y plataformas de streaming que, junto a la democratización del acceso, han generado un <strong>exceso de producción audiovisual</strong>.</p>
+                </div>
+
+                <div class="grid-2-col">
+                    <div class="text-card">
+                        <h3><i class="fas fa-bullseye"></i> Objetivos</h3>
+                        <p>Responder qué factores, variables y circunstancias determinan el éxito de una producción y cómo estas métricas pueden afinar los algoritmos de recomendación.</p>
+                    </div>
+                    <div class="text-card">
+                        <h3><i class="fas fa-check-circle"></i> Justificación</h3>
+                        <p>Ante la saturación de contenido, es vital validar si "más presupuesto" o "mayor volumen" equivalen a calidad, para evitar sesgos en las sugerencias al usuario.</p>
+                    </div>
+                </div>
+                
+                <div class="center-btn">
+                    <a href="#metodologia" class="cta-button">Ver Metodología <i class="fas fa-arrow-down"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="metodologia" class="data-section">
+            <div class="content-wrapper">
+                <h2>Metodología de Trabajo</h2>
+                <p class="section-subtitle">El proceso se estructuró en 5 fases secuenciales para garantizar la integridad de los datos.</p>
+
+                <div class="steps-container">
+                    <div class="step-card"><h4>1. Entorno</h4><p>Configuración de Python, Pandas, Matplotlib y librerías geoespaciales.</p></div>
+                    <div class="step-card"><h4>2. Carga</h4><p>Ingreso de datasets masivos: <em>movies_metadata.csv</em> y <em>tv_shows.csv</em>.</p></div>
+                    <div class="step-card"><h4>3. Limpieza</h4><p>Normalización de formatos, manejo de nulos y conversión de tipos de datos.</p></div>
+                    <div class="step-card"><h4>4. EDA</h4><p>Análisis Exploratorio y Visualización para detectar patrones.</p></div>
+                    <div class="step-card"><h4>5. Hipótesis</h4><p>Validación estadística y modelado de correlaciones</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="h1" class="data-section alternate-bg">
+            <div class="content-wrapper">
+                <h2>1. Hipótesis: Dinero vs. Calidad</h2>
+                <h3 class="hypothesis-statement">"No existe una relación relevante entre el presupuesto y el rating."</h3>
+
+                <p>Se analizó la correlación de Pearson entre <code>Budget</code> y <code>Vote Average</code> en <strong>8,377 películas</strong> con datos confiables, concluyendo que <strong>los factores creativos predominan sobre las grandes inversiones</strong>.</p>
+                
+                <div class="result-box">
+                    <span class="big-number">r = 0.074</span>
+                    <p>Correlación nula. </strong>Hipótesis Validada.</strong></p>
+                </div>
+
+                <div class="chart-large-container">
+                    <img src="img/grafico-presupuesto-rating.png" alt="Scatter Plot Presupuesto vs Rating" class="chart-img-full">
+                    <figcaption>Gráfico 1: La dispersión muestra que películas de alto presupuesto (eje X) frecuentemente obtienen ratings bajos o mediocres (eje Y). La línea de tendencia es casi horizontal.</figcaption>
+                </div>
+                
+                <div class="text-block" style="margin-top: 30px;">
+                    <h4><i class="fas fa-chart-line"></i> Detalle del Análisis</h4>
+                    <p>El coeficiente de correlación de Pearson (r = 0.074$) es <strong>muy débil</strong>, confirmando la <strong>independencia</strong> del rating respecto al presupuesto. Mientras que los títulos de <strong>alto presupuesto</strong> (>$200M$) evitan los ratings más bajos, las películas de <strong>bajo presupuesto</strong> ($<50M$) muestran la mayor variabilidad, cubriendo todo el espectro de calidad (desde ratings muy bajos hasta 10.0).</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="h2" class="data-section">
+            <div class="content-wrapper">
+                <h2>2. Hipótesis: La Calidad en el Tiempo</h2>
+                <h3 class="hypothesis-statement">"La calidad de las producciones ha disminuido significativamente a lo largo del tiempo."</h3>
+
+                <div class="analysis-grid">
+                    <div class="text-side">
+                        <p>Al analizar la evolución histórica de <strong>4,021 series</strong> entre 2000-2021, observamos un fenómeno de <strong>"Dilución de Calidad"</strong> que coincide con la explosión del streaming. La línea de tendencia es negativa:</p>
+                        <ul class="findings-list">
+                            <li><i class="fas fa-chart-area"></i> Correlación temporal: r = -0.113 (Tendencia negativa).</li>
+                            <li><i class="fas fa-minus-circle"></i> Caída promedio anual: -0.0269 puntos de rating.</li>
+                            <li><i class="fas fa-calendar-alt"></i> Comparación de décadas: series clásicas (≤2010) promediaron 7.09, mientras que series modernas (>2010) promediaron 6.98.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="chart-main">
+                        <img src="img/grafico-tendencia-calidad-series.png" alt="Tendencia de Calidad" class="chart-img">
+                        <figcaption>Gráfico 2.1: Caída sostenida del rating promedio en las últimas dos décadas. El mejor año (2000, 7.35) tiene una diferencia de 0.56 puntos con el peor (2021, 6.79).</figcaption>
+                    </div>
+                </div>
+
+                <div class="grid-2-col charts-row">
+                    <div class="chart-card">
+                        <h4>Volumen Anual</h4>
+                        <img src="img/cantidad-series-año.png" alt="Cantidad de series por año">
+                        <p class="chart-desc">El <strong>volumen de producción se dispara post-2010</strong>. La producción anual pasa de 50-100 series (pre-2010) a un pico de más de 450 (post-2019).</p>
+                    </div>
+                    <div class="chart-card">
+                        <h4>Dispersión Anual</h4>
+                        <img src="img/grafico-evolucion-series-por-año.png" alt="Evolución series">
+                        <p class="chart-desc">A partir de 2010, el rating se mantiene más estable alrededor del promedio general, demostrando una <strong>calidad promedio robusta</strong> a pesar del volumen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="h3" class="data-section alternate-bg">
+            <div class="content-wrapper">
+                <h2>3. Hipótesis: Concentración Geográfica</h2>
+                <h3 class="hypothesis-statement">"La producción audiovisual está altamente concentrada."</h3>
+
+                <p>Se analizaron <strong>38,868 películas</strong> para confirmar la concentración. La producción significativa se limita a un grupo selecto, revelando un sesgo geográfico masivo en el dataset, principalmente anglófono.</p>
+                
+                <div class="chart-large-container">
+                    <img src="img/mapa-coropletico-peliculas-por-pais.png" alt="Mapa de Producción Mundial" class="chart-img-full">
+                    <figcaption>Gráfico 3: Hegemonía indiscutible de Norteamérica en volumen. Estados Unidos domina con <strong>19,501 películas</strong>, representando el <strong>50.2%</strong> del total.</figcaption>
+                </div>
+                
+                <div class="text-block" style="margin-top: 30px;">
+                    <h4><i class="fas fa-percent"></i> Distribución de Volumen Global</h4>
+                    <p>El dominio estadounidense es absoluto, con más de 17,500 títulos. En contraste, <strong>América del Norte y Europa Occidental suman más del 80%</strong> de la producción analizada, limitando la representación global.</p>
+                    <ul class="findings-list">
+                        <li><i class="fas fa-flag-usa"></i> Estados Unidos: <strong>50.2%</strong> del total.</li>
+                        <li><i class="fas fa-flag"></i> Reino Unido: <strong>9.9%</strong> del total.</li>
+                        <li><i class="fas fa-flag"></i> Francia: <strong>9.2%</strong> del total.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="h4" class="data-section">
+            <div class="content-wrapper">
+                <h2>4. Hipótesis: Volumen vs. Calidad Geográfica</h2>
+                <h3 class="hypothesis-statement">"El liderazgo en volumen no garantiza liderazgo en calidad."</h3>
+                
+                <div class="mixed-layout">
+                    <div class="text-content">
+                        <p>Al contrastar la producción (H3) con el <strong>Rating Promedio</strong> (H4), la hegemonía de EE. UU. desaparece. La hipótesis se confirma, demostrando una <strong>correlación inversa</strong> entre producción masiva y excelencia cualitativa.</p>
+                        <ul class="findings-list">
+                            <li><i class="fas fa-trophy"></i> <strong>Top 3 en Calidad Promedio:</strong> Corea del Sur (6.53), Japón (6.46), Hong Kong (6.30).</li>
+                            <li><i class="fas fa-caret-right"></i> El contenido de nicho/autor de países con menor volumen suele tener ratings promedio más altos.</li>
+                            <li><i class="fas fa-caret-right"></i> Estados Unidos (el mayor productor) aparece con un Rating Promedio de <strong>5.86</strong>, que es bajo en la escala de calidad.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="chart-large-container">
+                        <img src="img/mapa-coropletico-rating-por-pais.png" alt="Mapa de Calidad por País" class="chart-img-full">
+                        <figcaption>Gráfico 4: Distribución global del rating promedio. Corea del Sur y Japón (verde oscuro/claro) lideran en calidad; EE. UU. (rojo) lidera en volumen pero tiene ratings más bajos.</figcaption>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusiones" class="data-section dark-bg">
+            <div class="content-wrapper">
+                <h2>Conclusiones y Recomendaciones</h2>
+                <p>En base al informe, definimos las siguientes reglas para optimizar un sistema de recomendación:</p>
+
+
+                <div class="conclusions-grid">
+                    <div class="conc-card">
+                        <div class="icon-box"><i class="fas fa-wallet"></i></div>
+                        <h3>Presupuesto ≠ Calidad</h3>
+                        <p>El presupuesto es <strong>irrelevante</strong> para predecir la calidad percibida. El sistema no debe ponderar la inversión, sino priorizar el mérito artístico y el talento creativo. Las producciones costosas solo tienen una tendencia a evitar los peores ratings, no a garantizar el éxito.</p>
+                    </div>
+                    <div class="conc-card">
+                        <div class="icon-box"><i class="fas fa-history"></i></div>
+                        <h3>Factor Nostalgia & Volumen</h3>
+                        <p>El rating promedio se mantiene estable (~7.0), pero el <strong>aumento desmedido del volumen</strong> de series arrastra ligeramente la calidad. Se debe priorizar el <strong>formato Serie</strong> (mayor calidad promedio) y recomendar activamente contenido de décadas anteriores (1990-2010) que mantiene ratings superiores.</p>
+                    </div>
+                    <div class="conc-card">
+                        <div class="icon-box"><i class="fas fa-map-marked-alt"></i></div>
+                        <h3>Diversidad Global Obligatoria</h3>
+                        <p>El liderazgo en volumen de EE. UU. <strong>no se traduce en liderazgo en calidad</strong>. Para evitar la fatiga por contenido tradicional, el algoritmo debe romper el sesgo y <strong>fomentar la recomendación</strong> de contenido de países con bajo volumen pero altos ratings ( Corea del Sur, Japón).</p>
+                    </div>
+                </div>
+                
+                <div class="text-block" style="margin-top: 40px;">
+                    <h3><i class="fas fa-cogs"></i> Aplicaciones Estratégicas</h3>
+                    <p>Este análisis ofrece a la industria herramientas para:</p>
+                    <ul class="findings-list">
+                        <li><i class="fas fa-lightbulb"></i> Orientar decisiones de inversión en producción audiovisual priorizando la historia sobre el dinero.</li>
+                        <li><i class="fas fa-layer-group"></i> Optimizar estrategias de contenido para plataformas, asegurando la calidad del catálogo histórico.</li>
+                        <li><i class="fas fa-search-dollar"></i> Identificar oportunidades de mercado en regiones subrepresentadas con alto mérito artístico.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Presentado por Cola Geronimo</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
